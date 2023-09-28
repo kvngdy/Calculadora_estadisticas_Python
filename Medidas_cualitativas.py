@@ -4,25 +4,26 @@ def calcular_razon(a, b):
     if a == 0 or b == 0:
         return "No se puede calcular una fracción con denominador cero."
 
-    a_s_b = Fraction(a, b)
-    b_s_a = Fraction(b, a)
+    return Fraction(a, b) 
 
-    return a_s_b , b_s_a
-
-def calcular_indice(a_s_b , b_s_a):
-    indice_a_s_b = "{:.2f}".format(float(a_s_b * 100))
-    indice_b_s_a = b_s_a * 100
+def calcular_indice(razon):
+    float(razon)
     
-    return indice_a_s_b , indice_b_s_a
+    return int(razon * 100)
 
-def calcular_proporcion(a,b):
-    proporcion = Fraction(a / (a+b)) 
+def calcular_proporcion():
+    print("\nProporcion\n")
+    a = int(input("Ingresar el valor incial a comparar\n→ "))
+    n = input("Ingresar todos los valores separados por una ','\n→ ")
+    n = n.split(',')
+    n = [int(numero) for numero in n]
+    n = sum(n)
     
-    return proporcion
+    return Fraction(a / n)#arreglao
 
-def calcular_porcentaje(proporcion):
-    
+def calcular_porcentaje():
+    print("\nPorcentaje\n")   
+    proporcion = calcular_proporcion()
     porcentaje = float(proporcion) * 100
-    porcentaje_decimal = "{:.2f}".format(porcentaje)
 
-    return porcentaje_decimal
+    return "{:.2f}".format(porcentaje)
